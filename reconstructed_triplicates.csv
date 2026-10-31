@@ -1,0 +1,325 @@
+"Gene.ID","treatment","replicate","replicate.source","expression"
+"Ar","CNTL",1,"minimum",-0.0880922092845356
+"Ar","CNTL",2,"reconstructed",8.361076456187e-09
+"Ar","CNTL",3,"maximum",0.0880922009234592
+"ARNT","CNTL",1,"minimum",-0.241
+"ARNT","CNTL",2,"reconstructed",0
+"ARNT","CNTL",3,"maximum",0.241
+"HIF1A","CNTL",1,"minimum",-0.153875708796517
+"HIF1A","CNTL",2,"reconstructed",-5.72898538331312e-08
+"HIF1A","CNTL",3,"maximum",0.153875766086371
+"HSP90","CNTL",1,"minimum",-0.234039062652568
+"HSP90","CNTL",2,"reconstructed",-5.82374110880135e-08
+"HSP90","CNTL",3,"maximum",0.234039120889979
+"CYP1A1","CNTL",1,"minimum",-0.267556787844049
+"CYP1A1","CNTL",2,"reconstructed",-2.94589763139008e-08
+"CYP1A1","CNTL",3,"maximum",0.267556817303025
+"ABCB9","CNTL",1,"minimum",-0.339888519450878
+"ABCB9","CNTL",2,"reconstructed",6.09087534853003e-08
+"ABCB9","CNTL",3,"maximum",0.339888458542124
+"CAT","CNTL",1,"minimum",-0.123179201604837
+"CAT","CNTL",2,"reconstructed",-2.32357387497384e-08
+"CAT","CNTL",3,"maximum",0.123179224840576
+"AIMF1","CNTL",1,"minimum",-0.320623744839564
+"AIMF1","CNTL",2,"reconstructed",5.49488626822026e-09
+"AIMF1","CNTL",3,"maximum",0.320623739344677
+"CASP8","CNTL",1,"minimum",-0.133179049824807
+"CASP8","CNTL",2,"reconstructed",-1.50927311759474e-08
+"CASP8","CNTL",3,"maximum",0.133179064917538
+"DAPK3","CNTL",1,"minimum",-0.383465626497559
+"DAPK3","CNTL",2,"reconstructed",-5.37867498318079e-08
+"DAPK3","CNTL",3,"maximum",0.383465680284309
+"XKR4","CNTL",1,"minimum",-1.19635838824248
+"XKR4","CNTL",2,"reconstructed",2.63080890405831e-10
+"XKR4","CNTL",3,"maximum",1.1963583879794
+"ARSB","CNTL",1,"minimum",-0.519717144732301
+"ARSB","CNTL",2,"reconstructed",3.70036052910194e-08
+"ARSB","CNTL",3,"maximum",0.519717107728696
+"KDM4A","CNTL",1,"minimum",-0.314099205783665
+"KDM4A","CNTL",2,"reconstructed",5.19997420678209e-08
+"KDM4A","CNTL",3,"maximum",0.314099153783923
+"SLC2A8","CNTL",1,"minimum",-0.315415301939991
+"SLC2A8","CNTL",2,"reconstructed",7.82182260072872e-08
+"SLC2A8","CNTL",3,"maximum",0.315415223721765
+"SMYD","CNTL",1,"minimum",-0.359164619470961
+"SMYD","CNTL",2,"reconstructed",-6.66402086291207e-08
+"SMYD","CNTL",3,"maximum",0.35916468611117
+"SETDB1","CNTL",1,"minimum",-0.497511111537492
+"SETDB1","CNTL",2,"reconstructed",8.69245964096876e-08
+"SETDB1","CNTL",3,"maximum",0.497511024612896
+"SAP130","CNTL",1,"minimum",-0.617298935499255
+"SAP130","CNTL",2,"reconstructed",7.95435528555544e-08
+"SAP130","CNTL",3,"maximum",0.617298855955702
+"KAT5","CNTL",1,"minimum",-0.310793462427387
+"KAT5","CNTL",2,"reconstructed",5.75450209705508e-09
+"KAT5","CNTL",3,"maximum",0.310793456672885
+"Ar","20 ppb",1,"minimum",0.0579
+"Ar","20 ppb",2,"reconstructed",0.2821
+"Ar","20 ppb",3,"maximum",0.497
+"ARNT","20 ppb",1,"minimum",0.081
+"ARNT","20 ppb",2,"reconstructed",0.361
+"ARNT","20 ppb",3,"maximum",0.641
+"HIF1A","20 ppb",1,"minimum",-0.184
+"HIF1A","20 ppb",2,"reconstructed",-0.0886
+"HIF1A","20 ppb",3,"maximum",0.0086
+"HSP90","20 ppb",1,"minimum",-0.938
+"HSP90","20 ppb",2,"reconstructed",-0.738
+"HSP90","20 ppb",3,"maximum",-0.535
+"CYP1A1","20 ppb",1,"minimum",-3.336
+"CYP1A1","20 ppb",2,"reconstructed",-2.839
+"CYP1A1","20 ppb",3,"maximum",-2.336
+"ABCB9","20 ppb",1,"minimum",-0.781
+"ABCB9","20 ppb",2,"reconstructed",-0.178
+"ABCB9","20 ppb",3,"maximum",0.425
+"CAT","20 ppb",1,"minimum",0.055
+"CAT","20 ppb",2,"reconstructed",0.085
+"CAT","20 ppb",3,"maximum",0.112
+"AIMF1","20 ppb",1,"minimum",0.352
+"AIMF1","20 ppb",2,"reconstructed",0.635
+"AIMF1","20 ppb",3,"maximum",0.915
+"CASP8","20 ppb",1,"minimum",-0.747234245945301
+"CASP8","20 ppb",2,"reconstructed",-0.624051168151427
+"CASP8","20 ppb",3,"maximum",-0.500867973793435
+"DAPK3","20 ppb",1,"minimum",1.517
+"DAPK3","20 ppb",2,"reconstructed",1.715
+"DAPK3","20 ppb",3,"maximum",1.913
+"XKR4","20 ppb",1,"minimum",-1.531
+"XKR4","20 ppb",2,"reconstructed",-1.454
+"XKR4","20 ppb",3,"maximum",-1.377
+"ARSB","20 ppb",1,"minimum",-1.552
+"ARSB","20 ppb",2,"reconstructed",-1.033
+"ARSB","20 ppb",3,"maximum",-0.502
+"KDM4A","20 ppb",1,"minimum",-1.737
+"KDM4A","20 ppb",2,"reconstructed",-1.374
+"KDM4A","20 ppb",3,"maximum",-1.02
+"SLC2A8","20 ppb",1,"minimum",-2.24983074591683
+"SLC2A8","20 ppb",2,"reconstructed",-2.10785157846228
+"SLC2A8","20 ppb",3,"maximum",-1.96587222556508
+"SMYD","20 ppb",1,"minimum",-1.14062825275597
+"SMYD","20 ppb",2,"reconstructed",-0.851612014895916
+"SMYD","20 ppb",3,"maximum",-0.562596254058618
+"SETDB1","20 ppb",1,"minimum",-1.265
+"SETDB1","20 ppb",2,"reconstructed",-1.085
+"SETDB1","20 ppb",3,"maximum",-0.908
+"SAP130","20 ppb",1,"minimum",-1.469
+"SAP130","20 ppb",2,"reconstructed",-1.325
+"SAP130","20 ppb",3,"maximum",-1.184
+"KAT5","20 ppb",1,"minimum",-0.387551259422406
+"KAT5","20 ppb",2,"reconstructed",-0.189618379225816
+"KAT5","20 ppb",3,"maximum",0.0083144023680533
+"Ar","24hr",1,"minimum",-0.109
+"Ar","24hr",2,"reconstructed",0.168
+"Ar","24hr",3,"maximum",0.448
+"ARNT","24hr",1,"minimum",-0.249
+"ARNT","24hr",2,"reconstructed",0.204
+"ARNT","24hr",3,"maximum",0.663
+"HIF1A","24hr",1,"minimum",-1.208
+"HIF1A","24hr",2,"reconstructed",-1.0088
+"HIF1A","24hr",3,"maximum",-0.818
+"HSP90","24hr",1,"minimum",0.175
+"HSP90","24hr",2,"reconstructed",0.368
+"HSP90","24hr",3,"maximum",0.561
+"CYP1A1","24hr",1,"minimum",-1.142
+"CYP1A1","24hr",2,"reconstructed",-0.643
+"CYP1A1","24hr",3,"maximum",-0.141
+"ABCB9","24hr",1,"minimum",0.912
+"ABCB9","24hr",2,"reconstructed",1.319
+"ABCB9","24hr",3,"maximum",1.729
+"CAT","24hr",1,"minimum",0.685
+"CAT","24hr",2,"reconstructed",0.8011
+"CAT","24hr",3,"maximum",0.9199
+"AIMF1","24hr",1,"minimum",0.456
+"AIMF1","24hr",2,"reconstructed",0.705
+"AIMF1","24hr",3,"maximum",0.957
+"CASP8","24hr",1,"minimum",-0.399
+"CASP8","24hr",2,"reconstructed",-0.284
+"CASP8","24hr",3,"maximum",-0.175
+"DAPK3","24hr",1,"minimum",-0.668
+"DAPK3","24hr",2,"reconstructed",-0.342
+"DAPK3","24hr",3,"maximum",-0.013
+"XKR4","24hr",1,"minimum",0.465
+"XKR4","24hr",2,"reconstructed",0.595
+"XKR4","24hr",3,"maximum",0.719
+"ARSB","24hr",1,"minimum",-2.071
+"ARSB","24hr",2,"reconstructed",-1.408
+"ARSB","24hr",3,"maximum",-0.766
+"KDM4A","24hr",1,"minimum",1.862
+"KDM4A","24hr",2,"reconstructed",1.994
+"KDM4A","24hr",3,"maximum",2.126
+"SLC2A8","24hr",1,"minimum",-3.662
+"SLC2A8","24hr",2,"reconstructed",-3.182
+"SLC2A8","24hr",3,"maximum",-2.708
+"SMYD","24hr",1,"minimum",0.084160883353315
+"SMYD","24hr",2,"reconstructed",0.385910052899596
+"SMYD","24hr",3,"maximum",0.687659204801865
+"SETDB1","24hr",1,"minimum",0.811
+"SETDB1","24hr",2,"reconstructed",1.2371
+"SETDB1","24hr",3,"maximum",1.6599
+"SAP130","24hr",1,"minimum",0.034
+"SAP130","24hr",2,"reconstructed",0.566
+"SAP130","24hr",3,"maximum",1.098
+"KAT5","24hr",1,"minimum",0.577575655929575
+"KAT5","24hr",2,"reconstructed",0.797049883715519
+"KAT5","24hr",3,"maximum",1.01652403544604
+"Ar","96hr",1,"minimum",-0.657
+"Ar","96hr",2,"reconstructed",-0.258
+"Ar","96hr",3,"maximum",0.132
+"ARNT","96hr",1,"minimum",-0.894
+"ARNT","96hr",2,"reconstructed",-0.309
+"ARNT","96hr",3,"maximum",0.267
+"HIF1A","96hr",1,"minimum",-1.938
+"HIF1A","96hr",2,"reconstructed",-1.548
+"HIF1A","96hr",3,"maximum",-1.158
+"HSP90","96hr",1,"minimum",-1.279
+"HSP90","96hr",2,"reconstructed",-0.839
+"HSP90","96hr",3,"maximum",-0.399
+"CYP1A1","96hr",1,"minimum",-1.608
+"CYP1A1","96hr",2,"reconstructed",-1.416
+"CYP1A1","96hr",3,"maximum",-1.221
+"ABCB9","96hr",1,"minimum",1.236
+"ABCB9","96hr",2,"reconstructed",1.5
+"ABCB9","96hr",3,"maximum",1.764
+"CAT","96hr",1,"minimum",0.695
+"CAT","96hr",2,"reconstructed",0.808
+"CAT","96hr",3,"maximum",0.921
+"AIMF1","96hr",1,"minimum",-0.0145
+"AIMF1","96hr",2,"reconstructed",0.1615
+"AIMF1","96hr",3,"maximum",0.339
+"CASP8","96hr",1,"minimum",-0.531
+"CASP8","96hr",2,"reconstructed",-0.356
+"CASP8","96hr",3,"maximum",-0.178
+"DAPK3","96hr",1,"minimum",0.708
+"DAPK3","96hr",2,"reconstructed",1.05
+"DAPK3","96hr",3,"maximum",1.38
+"XKR4","96hr",1,"minimum",-0.0306
+"XKR4","96hr",2,"reconstructed",0.1398
+"XKR4","96hr",3,"maximum",0.315
+"ARSB","96hr",1,"minimum",-1.362
+"ARSB","96hr",2,"reconstructed",-1.011
+"ARSB","96hr",3,"maximum",-0.669
+"KDM4A","96hr",1,"minimum",-1.117
+"KDM4A","96hr",2,"reconstructed",-0.782
+"KDM4A","96hr",3,"maximum",-0.45
+"SLC2A8","96hr",1,"minimum",-4.756
+"SLC2A8","96hr",2,"reconstructed",-4.524
+"SLC2A8","96hr",3,"maximum",-4.238
+"SMYD","96hr",1,"minimum",-1.09023278012574
+"SMYD","96hr",2,"reconstructed",-0.840310625679197
+"SMYD","96hr",3,"maximum",-0.590388036551507
+"SETDB1","96hr",1,"minimum",0.57
+"SETDB1","96hr",2,"reconstructed",0.765
+"SETDB1","96hr",3,"maximum",0.957
+"SAP130","96hr",1,"minimum",-0.852
+"SAP130","96hr",2,"reconstructed",-0.644
+"SAP130","96hr",3,"maximum",-0.436
+"KAT5","96hr",1,"minimum",0.0928472897709065
+"KAT5","96hr",2,"reconstructed",0.199124456613505
+"KAT5","96hr",3,"maximum",0.305402029459538
+"Ar","7 day",1,"minimum",-0.314
+"Ar","7 day",2,"reconstructed",-0.072
+"Ar","7 day",3,"maximum",0.164
+"ARNT","7 day",1,"minimum",-0.516
+"ARNT","7 day",2,"reconstructed",-0.282
+"ARNT","7 day",3,"maximum",-0.045
+"HIF1A","7 day",1,"minimum",-1.191
+"HIF1A","7 day",2,"reconstructed",-0.874
+"HIF1A","7 day",3,"maximum",-0.554
+"HSP90","7 day",1,"minimum",-1.184
+"HSP90","7 day",2,"reconstructed",-0.704
+"HSP90","7 day",3,"maximum",-0.224
+"CYP1A1","7 day",1,"minimum",-1.761
+"CYP1A1","7 day",2,"reconstructed",-1.311
+"CYP1A1","7 day",3,"maximum",-0.852
+"ABCB9","7 day",1,"minimum",0.697
+"ABCB9","7 day",2,"reconstructed",1.181
+"ABCB9","7 day",3,"maximum",1.665
+"CAT","7 day",1,"minimum",0.524
+"CAT","7 day",2,"reconstructed",0.79
+"CAT","7 day",3,"maximum",1.053
+"AIMF1","7 day",1,"minimum",-0.518
+"AIMF1","7 day",2,"reconstructed",-0.307
+"AIMF1","7 day",3,"maximum",-0.096
+"CASP8","7 day",1,"minimum",-0.409
+"CASP8","7 day",2,"reconstructed",-0.329
+"CASP8","7 day",3,"maximum",-0.255
+"DAPK3","7 day",1,"minimum",1.06
+"DAPK3","7 day",2,"reconstructed",1.325
+"DAPK3","7 day",3,"maximum",1.59
+"XKR4","7 day",1,"minimum",-0.204
+"XKR4","7 day",2,"reconstructed",0.123
+"XKR4","7 day",3,"maximum",0.45
+"ARSB","7 day",1,"minimum",-1.427
+"ARSB","7 day",2,"reconstructed",-1.067
+"ARSB","7 day",3,"maximum",-0.701
+"KDM4A","7 day",1,"minimum",-0.56
+"KDM4A","7 day",2,"reconstructed",-0.454
+"KDM4A","7 day",3,"maximum",-0.342
+"SLC2A8","7 day",1,"minimum",-5.211
+"SLC2A8","7 day",2,"reconstructed",-4.706
+"SLC2A8","7 day",3,"maximum",-4.351
+"SMYD","7 day",1,"minimum",-0.993165970978527
+"SMYD","7 day",2,"reconstructed",-0.748732814818658
+"SMYD","7 day",3,"maximum",-0.50429938273082
+"SETDB1","7 day",1,"minimum",-0.183
+"SETDB1","7 day",2,"reconstructed",0.556
+"SETDB1","7 day",3,"maximum",1.292
+"SAP130","7 day",1,"minimum",-0.615
+"SAP130","7 day",2,"reconstructed",-0.443
+"SAP130","7 day",3,"maximum",-0.274
+"KAT5","7 day",1,"minimum",-0.315713234647607
+"KAT5","7 day",2,"reconstructed",-0.254026332124775
+"KAT5","7 day",3,"maximum",-0.192339669083248
+"Ar","Hypox",1,"minimum",0.26109175833081
+"Ar","Hypox",2,"reconstructed",0.373530663940468
+"Ar","Hypox",3,"maximum",0.485969674256874
+"ARNT","Hypox",1,"minimum",-1.49508671829635
+"ARNT","Hypox",2,"reconstructed",0.228093684867365
+"ARNT","Hypox",3,"maximum",1.95127359685377
+"HIF1A","Hypox",1,"minimum",0.0678744871362917
+"HIF1A","Hypox",2,"reconstructed",0.222349664863803
+"HIF1A","Hypox",3,"maximum",0.376825155025544
+"HSP90","Hypox",1,"minimum",-1.55324846937261
+"HSP90","Hypox",2,"reconstructed",-1.48661948100202
+"HSP90","Hypox",3,"maximum",-1.41999014781561
+"CYP1A1","Hypox",1,"minimum",-0.352870555105431
+"CYP1A1","Hypox",2,"reconstructed",-0.08702603380691
+"CYP1A1","Hypox",3,"maximum",0.178818616372953
+"ABCB9","Hypox",1,"minimum",-1.24113197141714
+"ABCB9","Hypox",2,"reconstructed",-0.889830183962836
+"ABCB9","Hypox",3,"maximum",-0.538528546392023
+"CAT","Hypox",1,"minimum",-1.12865938411453
+"CAT","Hypox",2,"reconstructed",-0.692673525443951
+"CAT","Hypox",3,"maximum",-0.256687300396662
+"AIMF1","Hypox",1,"minimum",0.878993945190543
+"AIMF1","Hypox",2,"reconstructed",1.01852778195002
+"AIMF1","Hypox",3,"maximum",1.15806199391339
+"CASP8","Hypox",1,"minimum",-1.66564582356863
+"CASP8","Hypox",2,"reconstructed",-1.21600178223849
+"CASP8","Hypox",3,"maximum",-0.766358236494576
+"DAPK3","Hypox",1,"minimum",-0.538576259579818
+"DAPK3","Hypox",2,"reconstructed",0.395193863111492
+"DAPK3","Hypox",3,"maximum",1.3289637137294
+"XKR4","Hypox",1,"minimum",-2.66733579414451
+"XKR4","Hypox",2,"reconstructed",-2.02348570634532
+"XKR4","Hypox",3,"maximum",-1.37963584740291
+"ARSB","Hypox",1,"minimum",0.322933224038074
+"ARSB","Hypox",2,"reconstructed",0.725231897090433
+"ARSB","Hypox",3,"maximum",1.12753044224213
+"KDM4A","Hypox",1,"minimum",-1.42430161645547
+"KDM4A","Hypox",2,"reconstructed",-1.282314818348
+"KDM4A","Hypox",3,"maximum",-1.14032825602319
+"SLC2A8","Hypox",1,"minimum",-1.13246890168982
+"SLC2A8","Hypox",2,"reconstructed",-0.856388353389861
+"SLC2A8","Hypox",3,"maximum",-0.58030786883176
+"SMYD","Hypox",1,"minimum",-0.0141459923752652
+"SMYD","Hypox",2,"reconstructed",0.0611217466824612
+"SMYD","Hypox",3,"maximum",0.13638914620829
+"SETDB1","Hypox",1,"minimum",-1.22693486211455
+"SETDB1","Hypox",2,"reconstructed",-1.10087068735056
+"SETDB1","Hypox",3,"maximum",-0.974806692988832
+"SAP130","Hypox",1,"minimum",-1.03515283802491
+"SAP130","Hypox",2,"reconstructed",-0.641127822935861
+"SAP130","Hypox",3,"maximum",-0.247103060005036
+"KAT5","Hypox",1,"minimum",-1.13176475582965
+"KAT5","Hypox",2,"reconstructed",-0.548399028355725
+"KAT5","Hypox",3,"maximum",0.034966836732136

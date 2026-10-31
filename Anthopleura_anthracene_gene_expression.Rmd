@@ -52,8 +52,12 @@ data.frame(
 ```
 
 The three rows for each treatment are the reported mean, minimum, and maximum,
-in that order. They are retained as summaries rather than treated as three
-independent biological replicates.
+in that order. For the exploratory statistical analysis below, I assume that
+the minimum and maximum are two observations from exactly three independent
+replicates, and that the mean was calculated from those same three observations
+on the reported log2 scale. The unreported third observation is reconstructed
+from these values. This assumption should be confirmed before the results are
+used as final inferential statistics.
 
 ```{r}
 treatment.levels=c("CNTL","20 ppb","24hr","96hr","7 day","Hypox")
@@ -98,6 +102,48 @@ if (any(summary.check$minimum>summary.check$mean |
         summary.check$mean>summary.check$maximum,na.rm=TRUE)){
   stop("At least one mean does not fall between its reported minimum and maximum.")
 }
+```
+
+## Reconstructing the triplicates
+
+For three observations, the unreported value can be calculated as
+
+$$x_3=3\bar{x}-x_{minimum}-x_{maximum}.$$
+
+```{r}
+summary.check=summary.check %>%
+  mutate(reconstructed=3*mean-minimum-maximum)
+
+if (any(summary.check$reconstructed<summary.check$minimum |
+        summary.check$reconstructed>summary.check$maximum,na.rm=TRUE)){
+  stop("A reconstructed observation falls outside the reported range.")
+}
+
+replicate.data=summary.check %>%
+  select(Gene.ID,treatment,minimum,reconstructed,maximum) %>%
+  pivot_longer(
+    cols=c(minimum,reconstructed,maximum),
+    names_to="replicate.source",
+    values_to="expression"
+  ) %>%
+  mutate(
+    replicate=match(replicate.source,c("minimum","reconstructed","maximum"))
+  ) %>%
+  select(Gene.ID,treatment,replicate,replicate.source,expression)
+
+write.csv(
+  replicate.data,
+  "reconstructed_triplicates.csv",
+  row.names=FALSE
+)
+
+data.frame(
+  gene.treatment.groups=nrow(summary.check),
+  reconstructed.observations=nrow(summary.check),
+  reconstructed.values.within.reported.range=
+    sum(summary.check$reconstructed>=summary.check$minimum &
+        summary.check$reconstructed<=summary.check$maximum)
+) %>% kable(caption="Validation of reconstructed observations")
 ```
 
 # Plots
@@ -204,18 +250,117 @@ kable(recovery.contrasts,digits=3,longtable=TRUE,
       ))
 ```
 
-## Statistical limitation
+# One-way ANOVA and post-hoc tests
 
-The workbook provides a mean, minimum, and maximum for each gene and treatment,
-not the underlying biological-replicate measurements. A mean and its two range
-limits are not independent observations. Treating them as three replicates
-would underestimate uncertainty and produce invalid ANOVA and post-hoc
-p-values. Consequently, no inferential p-values are calculated from this file.
+Under the triplicate reconstruction assumption, a separate one-way ANOVA is
+fit for each GOI using all six treatments. The Benjamini--Hochberg column
+adjusts the 18 omnibus ANOVA p-values for testing multiple genes.
 
-The appropriate analysis after obtaining the replicate-level expression data
-is a separate one-way model for each GOI, followed by planned comparisons of
-24-hour, 96-hour, and 7-day recovery against (1) control and (2) 20 ppb, with a
-multiple-testing adjustment. Model residuals and variance assumptions should
-also be checked; a robust or permutation alternative should be used if those
-assumptions are not reasonable. The hypoxia group can remain in each overall
-model, but it is not one of the requested post-hoc reference comparisons.
+```{r}
+anova.results=replicate.data %>%
+  group_by(Gene.ID) %>%
+  group_modify(function(data,gene){
+    model=aov(expression~treatment,data=data)
+    model.table=summary(model)[[1]]
+    data.frame(
+      treatment.df=model.table["treatment","Df"],
+      residual.df=model.table["Residuals","Df"],
+      F.value=model.table["treatment","F value"],
+      p.value=model.table["treatment","Pr(>F)"]
+    )
+  }) %>%
+  ungroup() %>%
+  mutate(
+    p.adjusted.BH=p.adjust(p.value,method="BH"),
+    significant.BH=p.adjusted.BH<0.05
+  ) %>%
+  arrange(p.value)
+
+write.csv(
+  anova.results,
+  "anova_results.csv",
+  row.names=FALSE
+)
+
+kable(
+  anova.results %>%
+    mutate(
+      p.value=format.pval(p.value,digits=3,eps=0.001),
+      p.adjusted.BH=format.pval(p.adjusted.BH,digits=3,eps=0.001)
+    ),
+  digits=4,longtable=TRUE,
+      caption=paste(
+        "One-way ANOVA for each GOI. BH-adjusted p-values account for the",
+        "18 omnibus gene tests."
+      ))
+```
+
+Tukey's honestly significant difference test is then used for post-hoc
+comparisons. Tukey-adjusted p-values control the family-wise error rate across
+all 15 treatment pairs within each GOI. The full set of comparisons is written
+to `posthoc_results_tukey_all.csv`; the table below contains the six requested
+recovery comparisons against control and 20 ppb.
+
+```{r}
+tukey.results=replicate.data %>%
+  group_by(Gene.ID) %>%
+  group_modify(function(data,gene){
+    model=aov(expression~treatment,data=data)
+    result=as.data.frame(TukeyHSD(model,"treatment")$treatment)
+    result$comparison=rownames(result)
+    rownames(result)=NULL
+    result %>%
+      select(comparison,difference=diff,lower.CI=lwr,upper.CI=upr,
+             p.adjusted.Tukey=`p adj`)
+  }) %>%
+  ungroup() %>%
+  mutate(significant.Tukey=p.adjusted.Tukey<0.05)
+
+write.csv(
+  tukey.results,
+  "posthoc_results_tukey_all.csv",
+  row.names=FALSE
+)
+
+requested.comparisons=c(
+  "24hr-CNTL","96hr-CNTL","7 day-CNTL",
+  "24hr-20 ppb","96hr-20 ppb","7 day-20 ppb"
+)
+
+requested.posthoc=tukey.results %>%
+  filter(comparison %in% requested.comparisons) %>%
+  mutate(
+    recovery.code=sub("-.*$","",comparison),
+    reference.code=sub("^.*-","",comparison),
+    recovery=unname(treatment.labels[recovery.code]),
+    reference=unname(treatment.labels[reference.code])
+  ) %>%
+  select(Gene.ID,recovery,reference,difference,lower.CI,upper.CI,
+         p.adjusted.Tukey,significant.Tukey) %>%
+  arrange(Gene.ID,recovery,reference)
+
+write.csv(
+  requested.posthoc,
+  "posthoc_results_requested.csv",
+  row.names=FALSE
+)
+
+kable(
+  requested.posthoc %>%
+    mutate(
+      p.adjusted.Tukey=
+        format.pval(p.adjusted.Tukey,digits=3,eps=0.001)
+    ),
+  digits=4,longtable=TRUE,
+      caption=paste(
+        "Requested Tukey HSD comparisons. A positive difference means that",
+        "expression is greater in recovery than in the reference treatment."
+      ))
+```
+
+These inferential results are provisional because they depend on the supplied
+minimum and maximum being actual observations from a triplicate and on the mean
+having been calculated from those same observations on the same scale. With
+only three observations per treatment, assumption checks also have limited
+power. The models should therefore be rerun using the original replicate-level
+measurements when those data become available.
