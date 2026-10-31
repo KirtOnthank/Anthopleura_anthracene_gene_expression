@@ -136,6 +136,13 @@ heatmap.matrix=as.matrix(antho.sum)
 color.limit=max(abs(heatmap.matrix),na.rm=TRUE)
 color.breaks=seq(-color.limit,color.limit,length.out=100)
 
+# Rotate branches without changing the clustering so control is the leftmost
+# treatment. The remaining leaf order is determined by the dendrogram.
+col.dendrogram=as.dendrogram(hclust(dist(t(heatmap.matrix))))
+col.weights=seq_len(ncol(heatmap.matrix))
+col.weights[colnames(heatmap.matrix)=="CNTL"]=-100
+col.dendrogram=reorder(col.dendrogram,wts=col.weights,agglo.FUN=mean)
+
 png("heatmap2.png",width=8,height=9,units="in",res=300)
 heat.plot=heatmap.2(heatmap.matrix
           ,col=greenred(99)
@@ -144,14 +151,16 @@ heat.plot=heatmap.2(heatmap.matrix
           ,trace="none"
           ,scale="none"
           ,Rowv=TRUE
-          ,Colv=TRUE
+          ,Colv=col.dendrogram
           ,dendrogram="both"
           ,cexRow=1.15
           ,cexCol=1.2
           ,margins=c(10,8)
+          ,lhei=c(0.45,4)
           ,key=TRUE
           ,key.title="log2 fold change"
-          ,key.xlab="relative to mean control"
+          ,key.xlab=NA
+          ,key.par=list(mar=c(1.8,2,1.2,0.5),mgp=c(1,0.25,0),cex=0.65)
           ,labRow=row.lab2
           ,labCol=col.lab2
           ,srtCol=45
