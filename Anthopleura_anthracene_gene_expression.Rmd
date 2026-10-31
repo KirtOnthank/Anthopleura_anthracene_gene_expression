@@ -246,7 +246,7 @@ knitr::include_graphics("heatmap2.png")
 
 # Treatment comparisons
 
-The requested comparisons are each recovery period versus both the control and
+The comparisons are each recovery period versus both the control and
 20 ppb treatments. The table below reports those differences in mean log2
 expression. Positive values indicate greater expression in the recovery
 treatment than in the reference treatment.
@@ -328,7 +328,7 @@ kable(
 Tukey's honestly significant difference test is then used for post-hoc
 comparisons. Tukey-adjusted p-values control the family-wise error rate across
 all 15 treatment pairs within each GOI. The full set of comparisons is written
-to `posthoc_results_tukey_all.csv`; the table below contains the six requested
+to `posthoc_results_tukey_all.csv`; the table below contains the six recovery
 recovery comparisons against control and 20 ppb.
 
 ```{r}
@@ -352,13 +352,13 @@ write.csv(
   row.names=FALSE
 )
 
-requested.comparisons=c(
+recovery.comparisons=c(
   "24hr-CNTL","96hr-CNTL","7 day-CNTL",
   "24hr-20 ppb","96hr-20 ppb","7 day-20 ppb"
 )
 
-requested.posthoc=tukey.results %>%
-  filter(comparison %in% requested.comparisons) %>%
+recovery.posthoc=tukey.results %>%
+  filter(comparison %in% recovery.comparisons) %>%
   mutate(
     recovery.code=sub("-.*$","",comparison),
     reference.code=sub("^.*-","",comparison),
@@ -370,13 +370,13 @@ requested.posthoc=tukey.results %>%
   arrange(Gene.ID,recovery,reference)
 
 write.csv(
-  requested.posthoc,
-  "posthoc_results_requested.csv",
+  recovery.posthoc,
+  "posthoc_results_recovery_comparisons.csv",
   row.names=FALSE
 )
 
 kable(
-  requested.posthoc %>%
+  recovery.posthoc %>%
     mutate(
       recovery=sub(" recovery$","",recovery),
       p.adjusted.Tukey=
@@ -392,7 +392,7 @@ kable(
     ),
   digits=4,longtable=TRUE,booktabs=TRUE,
       caption=paste(
-        "Requested Tukey HSD comparisons. A positive difference means that",
+        "Tukey HSD recovery comparisons. A positive difference means that",
         "expression is greater in recovery than in the reference treatment."
       )) %>%
   kable_styling(latex_options="repeat_header",font_size=7)
