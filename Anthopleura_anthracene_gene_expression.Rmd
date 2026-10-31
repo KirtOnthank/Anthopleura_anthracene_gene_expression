@@ -2,16 +2,35 @@
 title: "Anthopleura anthracene gene expression"
 author: "Kirt Onthank"
 date: "`r Sys.Date()`"
-output: pdf_document
+output:
+  pdf_document:
+    toc: true
+    number_sections: true
+    fig_caption: true
+geometry: margin=0.65in
+header-includes:
+  - \usepackage{float}
 ---
 
-```{r}
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo=FALSE,
+  message=FALSE,
+  warning=FALSE,
+  fig.align="center"
+)
+
 library(readxl)
 library(tidyr)
 library(dplyr)
 library(knitr)
 library(gplots)
+library(kableExtra)
 ```
+
+\newpage
+
+# Data preparation
 
 ```{r}
 data.file="qPCR data for heatmap for Kirt 10-30-26.xlsx"
@@ -48,7 +67,9 @@ data.frame(
   gene.columns.in.workbook=ncol(antho)-1+length(duplicate.columns),
   unique.genes.used=ncol(antho)-1,
   exact.duplicate.removed=paste(duplicate.genes,collapse=", ")
-) %>% kable(caption="Data checks for the updated workbook")
+) %>%
+  kable(booktabs=TRUE,caption="Data checks for the updated workbook") %>%
+  kable_styling(latex_options="hold_position",font_size=9)
 ```
 
 The three rows for each treatment are the reported mean, minimum, and maximum,
@@ -143,8 +164,12 @@ data.frame(
   reconstructed.values.within.reported.range=
     sum(summary.check$reconstructed>=summary.check$minimum &
         summary.check$reconstructed<=summary.check$maximum)
-) %>% kable(caption="Validation of reconstructed observations")
+) %>%
+  kable(booktabs=TRUE,caption="Validation of reconstructed observations") %>%
+  kable_styling(latex_options="hold_position",font_size=9)
 ```
+
+\newpage
 
 # Plots
 ## Heatmap
@@ -165,8 +190,9 @@ antho.sum=as.data.frame(
 )
 rownames(antho.sum)=antho.wide$Gene.ID
 
-kable(antho.sum,digits=3,
-      caption="Mean log2 expression values used in the heatmap")
+kable(antho.sum,digits=3,booktabs=TRUE,linesep="",
+      caption="Mean log2 expression values used in the heatmap") %>%
+  kable_styling(latex_options="hold_position",font_size=7)
 ```
 
 ```{r}
@@ -211,10 +237,12 @@ heat.plot=heatmap.2(heatmap.matrix
           ,labCol=col.lab2
           ,srtCol=45
           )
-dev.off()
+invisible(dev.off())
 ```
 
-![Clustered heatmap of mean expression for the six treatment groups.](heatmap2.png)
+```{r heatmap-figure, fig.cap="Clustered heatmap of mean expression for the six treatment groups.", fig.pos="H", out.width="95%"}
+knitr::include_graphics("heatmap2.png")
+```
 
 # Treatment comparisons
 
@@ -243,11 +271,12 @@ write.csv(
   "recovery_contrasts_descriptive.csv",
           row.names=FALSE)
 
-kable(recovery.contrasts,digits=3,longtable=TRUE,
+kable(recovery.contrasts,digits=3,longtable=TRUE,booktabs=TRUE,
       caption=paste(
         "Descriptive recovery contrasts. These are effect sizes, not",
         "inferential tests or p-values."
-      ))
+      )) %>%
+  kable_styling(latex_options="repeat_header",font_size=7)
 ```
 
 # One-way ANOVA and post-hoc tests
@@ -288,11 +317,12 @@ kable(
       p.value=format.pval(p.value,digits=3,eps=0.001),
       p.adjusted.BH=format.pval(p.adjusted.BH,digits=3,eps=0.001)
     ),
-  digits=4,longtable=TRUE,
+  digits=4,longtable=TRUE,booktabs=TRUE,
       caption=paste(
         "One-way ANOVA for each GOI. BH-adjusted p-values account for the",
         "18 omnibus gene tests."
-      ))
+      )) %>%
+  kable_styling(latex_options="repeat_header",font_size=7)
 ```
 
 Tukey's honestly significant difference test is then used for post-hoc
@@ -348,14 +378,24 @@ write.csv(
 kable(
   requested.posthoc %>%
     mutate(
+      recovery=sub(" recovery$","",recovery),
       p.adjusted.Tukey=
         format.pval(p.adjusted.Tukey,digits=3,eps=0.001)
+    ) %>%
+    rename(
+      GOI=Gene.ID,
+      Difference=difference,
+      `Lower 95% CI`=lower.CI,
+      `Upper 95% CI`=upper.CI,
+      `Tukey p`=p.adjusted.Tukey,
+      Significant=significant.Tukey
     ),
-  digits=4,longtable=TRUE,
+  digits=4,longtable=TRUE,booktabs=TRUE,
       caption=paste(
         "Requested Tukey HSD comparisons. A positive difference means that",
         "expression is greater in recovery than in the reference treatment."
-      ))
+      )) %>%
+  kable_styling(latex_options="repeat_header",font_size=7)
 ```
 
 These inferential results are provisional because they depend on the supplied
